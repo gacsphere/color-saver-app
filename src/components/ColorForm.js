@@ -1,10 +1,34 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-export default function ColorForm() {
+export default function ColorForm({ addColorCard }) {
+  const [colorCode, setColorCode] = useState("#cccccc");
+
   return (
-    <FormCard>
-      <Input type="color" name="colorPicker"></Input>
-      <Input type="text" name="colorCode"></Input>
+    <FormCard
+      action=""
+      onSubmit={(event) => {
+        event.preventDefault();
+        addColorCard(colorCode);
+      }}
+      style={{ backgroundColor: colorCode }}
+    >
+      <Input
+        type="color"
+        name="colorPicker"
+        value={colorCode}
+        onChange={(event) => {
+          setColorCode(event.target.value);
+        }}
+      ></Input>
+      <Input
+        type="text"
+        name="colorCode"
+        value={colorCode}
+        onChange={(event) => {
+          setColorCode(event.target.value);
+        }}
+      ></Input>
       <CreateButton>Create</CreateButton>
     </FormCard>
   );
@@ -30,6 +54,11 @@ const Input = styled.input`
   width: 50%;
   height: 3rem;
   border: 0.25rem solid var(--primary-black);
+  font-family: monospace;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--primary-black);
   :focus {
     transform: rotate(-6deg);
     outline: none;
@@ -42,6 +71,9 @@ const CreateButton = styled.button`
   background-color: var(--primary-black);
   color: var(--primary-white);
   border: none;
+  font-family: monospace;
+  font-size: 1rem;
+  text-align: center;
   text-transform: uppercase;
   :hover {
     cursor: pointer;

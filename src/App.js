@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
 import GlobalStyle from "./components/GlobalStyle";
@@ -69,12 +70,23 @@ function App() {
     },
   ];
 
+  const [colorCards, setColorCards] = useState(initialColors);
+  function addColorCard(newColorCode) {
+    setColorCards((previousColorCards) => [
+      {
+        id: nanoid(),
+        colorCode: newColorCode,
+      },
+      ...previousColorCards,
+    ]);
+  }
+
   return (
     <>
       <GlobalStyle />
-      <ColorForm />
       <CardList>
-        {initialColors.map((color) => (
+        <ColorForm addColorCard={addColorCard} />
+        {colorCards.map((color) => (
           <ColorCard key={color.id} color={color.colorCode} />
         ))}
       </CardList>
