@@ -21,7 +21,9 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body{
+    margin: 1.5rem;
     font-family: monospace;
+    font-size: 1.5rem;
     background-color: var(--primary-white);
     color: var(--primary-black);
 }`;

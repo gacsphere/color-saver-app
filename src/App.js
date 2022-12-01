@@ -1,4 +1,5 @@
 import "./App.css";
+import styled from "styled-components";
 import { nanoid } from "nanoid";
 import GlobalStyle from "./components/GlobalStyle";
 import ColorCard from "./components/ColorCard";
@@ -70,13 +71,20 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <ul>
+      <CardList>
         {initialColors.map((color) => (
           <ColorCard key={color.id} color={color.colorCode} />
         ))}
-      </ul>
+      </CardList>
     </>
   );
 }
+
+const CardList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+`;
 
 export default App;
