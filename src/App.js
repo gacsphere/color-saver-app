@@ -1,5 +1,6 @@
 import "./App.css";
 import { nanoid } from "nanoid";
+import ColorCard from "./components/ColorCard";
 
 function App() {
   const initialColors = [
@@ -65,7 +66,13 @@ function App() {
     },
   ];
 
-  return <></>;
+  return (
+    <ul>
+      {initialColors.map((color) => (
+        <ColorCard key={color.id} color={color.colorCode} />
+      ))}
+    </ul>
+  );
 }
 
 export default App;
