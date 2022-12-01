@@ -1,5 +1,6 @@
 import "./App.css";
 import { nanoid } from "nanoid";
+import GlobalStyle from "./components/GlobalStyle";
 import ColorCard from "./components/ColorCard";
 
 function App() {
@@ -67,11 +68,14 @@ function App() {
   ];
 
   return (
-    <ul>
-      {initialColors.map((color) => (
-        <ColorCard key={color.id} color={color.colorCode} />
-      ))}
-    </ul>
+    <>
+      <GlobalStyle />
+      <ul>
+        {initialColors.map((color) => (
+          <ColorCard key={color.id} color={color.colorCode} />
+        ))}
+      </ul>
+    </>
   );
 }
 
