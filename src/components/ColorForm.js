@@ -3,8 +3,8 @@ import styled from "styled-components";
 export default function ColorForm() {
   return (
     <FormCard>
-      <Input></Input>
-      <Input></Input>
+      <Input type="color" name="colorPicker"></Input>
+      <Input type="text" name="colorCode"></Input>
       <CreateButton>Create</CreateButton>
     </FormCard>
   );

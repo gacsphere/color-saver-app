@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { nanoid } from "nanoid";
 import GlobalStyle from "./components/GlobalStyle";
 import ColorCard from "./components/ColorCard";
-import Form from "./components/Form";
+import ColorForm from "./components/ColorForm";
 
 function App() {
   const initialColors = [
@@ -72,7 +72,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Form />
+      <ColorForm />
       <CardList>
         {initialColors.map((color) => (
           <ColorCard key={color.id} color={color.colorCode} />
