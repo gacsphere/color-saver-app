@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "./StyledComponents";
 
 export default function ColorCard({ color }) {
   function handleClick() {
@@ -8,6 +9,7 @@ export default function ColorCard({ color }) {
   return (
     <ColorItem onClick={handleClick} style={{ backgroundColor: color }}>
       <p>{color}</p>
+      <Button>delete</Button>
     </ColorItem>
   );
 }
@@ -18,8 +20,10 @@ const ColorItem = styled.li`
   height: 15rem;
   border: 0.25rem solid var(--primary-black);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   :hover {
     cursor: pointer;
     transform: rotate(6deg);
