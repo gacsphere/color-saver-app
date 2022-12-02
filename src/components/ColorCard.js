@@ -8,7 +8,7 @@ export default function ColorCard({ color, deleteColorCard, id }) {
 
   return (
     <ColorItem onClick={handleClick} style={{ backgroundColor: color }}>
-      <p>{color}</p>
+      <ColorCodeTxt>{color}</ColorCodeTxt>
       <Button onClick={(event) => deleteColorCard(id, event)}>delete</Button>
     </ColorItem>
   );
@@ -28,4 +28,8 @@ const ColorItem = styled.li`
     cursor: pointer;
     /* transform: rotate(-6deg); */
   }
+`;
+
+const ColorCodeTxt = styled.p`
+  text-transform: uppercase;
 `;
