@@ -43,6 +43,13 @@ function App() {
     ]);
   }
 
+  function deleteColorCard(id, event) {
+    event.stopPropagation();
+    setColorCards((colorCards) =>
+      colorCards.filter((colorCard) => colorCard.id !== id)
+    );
+  }
+
   useEffect(() => {
     localStorage.setItem("colorCards", JSON.stringify(colorCards));
   }, [colorCards]);
@@ -53,7 +60,13 @@ function App() {
       <CardList>
         <ColorForm addColorCard={addColorCard} />
         {colorCards.map((color) => (
-          <ColorCard key={color.id} color={color.colorCode} />
+          <ColorCard
+            key={color.id}
+            id={color.id}
+            color={color.colorCode}
+            deleteColorCard={deleteColorCard}
+            // deleteColorCard={(event) => deleteColorCard(color.id, event)}
+          />
         ))}
       </CardList>
     </>

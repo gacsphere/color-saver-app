@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Button } from "./StyledComponents";
 
-export default function ColorCard({ color }) {
+export default function ColorCard({ color, deleteColorCard, id }) {
   function handleClick() {
     navigator.clipboard.writeText(color);
   }
@@ -9,7 +9,7 @@ export default function ColorCard({ color }) {
   return (
     <ColorItem onClick={handleClick} style={{ backgroundColor: color }}>
       <p>{color}</p>
-      <Button>delete</Button>
+      <Button onClick={(event) => deleteColorCard(id, event)}>delete</Button>
     </ColorItem>
   );
 }
