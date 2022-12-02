@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
 import GlobalStyle from "./components/GlobalStyle";
@@ -30,7 +30,9 @@ function App() {
     },
   ];
 
-  const [colorCards, setColorCards] = useState(initialColors);
+  const [colorCards, setColorCards] = useState(
+    JSON.parse(localStorage.getItem("colorCards")) || []
+  );
   function addColorCard(newColorCode) {
     setColorCards((previousColorCards) => [
       {
@@ -40,6 +42,10 @@ function App() {
       ...previousColorCards,
     ]);
   }
+
+  useEffect(() => {
+    localStorage.setItem("colorCards", JSON.stringify(colorCards));
+  }, [colorCards]);
 
   return (
     <>
