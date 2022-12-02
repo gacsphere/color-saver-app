@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "./StyledComponents";
 import styled from "styled-components";
 
 export default function ColorForm({ addColorCard }) {
@@ -29,7 +30,7 @@ export default function ColorForm({ addColorCard }) {
           setColorCode(event.target.value);
         }}
       ></Input>
-      <CreateButton>Create</CreateButton>
+      <Button>Create</Button>
     </FormCard>
   );
 }
@@ -70,24 +71,5 @@ const Input = styled.input`
   }
   ::-webkit-color-swatch {
     border: none;
-  }
-`;
-
-const CreateButton = styled.button`
-  width: 50%;
-  height: 3rem;
-  background-color: var(--primary-black);
-  color: var(--primary-white);
-  border: none;
-  font-family: monospace;
-  font-size: 1rem;
-  text-align: center;
-  text-transform: uppercase;
-  :hover {
-    cursor: pointer;
-    transform: rotate(6deg);
-  }
-  :active {
-    background-color: var(--primary-gray);
   }
 `;
