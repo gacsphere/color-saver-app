@@ -12,7 +12,7 @@ const Button = styled.button`
   text-transform: uppercase;
   :hover {
     cursor: pointer;
-    transform: rotate(6deg);
+    transform: rotate(-6deg);
   }
   :active {
     background-color: var(--primary-gray);

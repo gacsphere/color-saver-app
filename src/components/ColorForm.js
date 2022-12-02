@@ -47,7 +47,7 @@ const FormCard = styled.form`
   gap: 1rem;
   /* :hover {
     cursor: pointer;
-    transform: rotate(6deg);
+    transform: rotate(-6deg);
   } */
 `;
 
@@ -60,8 +60,8 @@ const Input = styled.input`
   font-size: 1rem;
   text-align: center;
   text-transform: uppercase;
-  color: var(--primary-black);
-  background-color: var(--primary-white);
+  color: var(--primary-white);
+  background-color: var(--primary-black);
   :focus {
     transform: rotate(-6deg);
     outline: none;

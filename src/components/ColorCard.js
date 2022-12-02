@@ -26,6 +26,6 @@ const ColorItem = styled.li`
   gap: 1rem;
   :hover {
     cursor: pointer;
-    transform: rotate(6deg);
+    /* transform: rotate(-6deg); */
   }
 `;
