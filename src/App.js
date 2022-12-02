@@ -31,7 +31,7 @@ function App() {
   ];
 
   const [colorCards, setColorCards] = useState(
-    JSON.parse(localStorage.getItem("colorCards")) || []
+    JSON.parse(localStorage.getItem("colorCards")) || initialColors
   );
   function addColorCard(newColorCode) {
     setColorCards((previousColorCards) => [
