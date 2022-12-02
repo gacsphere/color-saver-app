@@ -44,13 +44,14 @@ const FormCard = styled.form`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  :hover {
+  /* :hover {
     cursor: pointer;
     transform: rotate(6deg);
-  }
+  } */
 `;
 
 const Input = styled.input`
+  /* -webkit-appearance: none; */
   width: 50%;
   height: 3rem;
   border: 0.25rem solid var(--primary-black);
@@ -59,9 +60,16 @@ const Input = styled.input`
   text-align: center;
   text-transform: uppercase;
   color: var(--primary-black);
+  background-color: var(--primary-white);
   :focus {
     transform: rotate(-6deg);
     outline: none;
+  }
+  ::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  ::-webkit-color-swatch {
+    border: none;
   }
 `;
 
