@@ -29,6 +29,7 @@ export default function ColorForm({ addColorCard }) {
         onChange={(event) => {
           setColorCode(event.target.value);
         }}
+        style={{ backgroundColor: colorCode }}
       ></Input>
       <Button>Create</Button>
     </FormCard>
@@ -60,8 +61,8 @@ const Input = styled.input`
   font-size: 1rem;
   text-align: center;
   text-transform: uppercase;
-  color: var(--primary-white);
-  background-color: var(--primary-black);
+  color: var(--primary-black);
+  /* background-color: var(--primary-black); */
   :focus {
     transform: rotate(-6deg);
     outline: none;
