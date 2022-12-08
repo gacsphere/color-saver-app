@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "./StyledComponents";
+import { Button, Input } from "./StyledComponents";
 
 export default function ColorCard({
   color,
@@ -15,7 +15,7 @@ export default function ColorCard({
   return (
     <>
       <ColorItem onClick={handleClick} style={{ backgroundColor: color }}>
-        <ColorCodeTxt>{color}</ColorCodeTxt>
+        <Input value={color} style={{ backgroundColor: color }} />
         <Button
           // onClick={(event) => {
           //   event.stopPropagation();
@@ -44,8 +44,4 @@ const ColorItem = styled.li`
     cursor: pointer;
     /* transform: rotate(-6deg); */
   }
-`;
-
-const ColorCodeTxt = styled.p`
-  text-transform: uppercase;
 `;

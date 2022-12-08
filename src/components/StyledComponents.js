@@ -20,4 +20,27 @@ const Button = styled.button`
   }
 `;
 
-export { Button };
+const Input = styled.input`
+  /* -webkit-appearance: none; */
+  width: 50%;
+  height: 3rem;
+  border: 0.25rem solid var(--primary-black);
+  font-family: monospace;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--primary-black);
+  /* background-color: var(--primary-black); */
+  :focus {
+    transform: rotate(-6deg);
+    outline: none;
+  }
+  ::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  ::-webkit-color-swatch {
+    border: none;
+  }
+`;
+
+export { Button, Input };
