@@ -19,6 +19,7 @@ export default function ColorCard({
         <Input
           value={color}
           onChange={(event) => changeInputColor(id, event)}
+          onClick={handleClick}
           style={{ backgroundColor: color }}
         />
         <Button
