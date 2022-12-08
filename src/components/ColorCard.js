@@ -1,16 +1,32 @@
 import styled from "styled-components";
 import { Button } from "./StyledComponents";
 
-export default function ColorCard({ color, deleteColorCard, id }) {
+export default function ColorCard({
+  color,
+  deleteColorCard,
+  id,
+  showDeletePopup,
+  setShowDeletePopup,
+}) {
   function handleClick() {
     navigator.clipboard.writeText(color);
   }
 
   return (
-    <ColorItem onClick={handleClick} style={{ backgroundColor: color }}>
-      <ColorCodeTxt>{color}</ColorCodeTxt>
-      <Button onClick={(event) => deleteColorCard(id, event)}>delete</Button>
-    </ColorItem>
+    <>
+      <ColorItem onClick={handleClick} style={{ backgroundColor: color }}>
+        <ColorCodeTxt>{color}</ColorCodeTxt>
+        <Button
+          onClick={(event) => {
+            event.stopPropagation();
+            setShowDeletePopup(true);
+          }}
+          // onClick={(event) => deleteColorCard(id, event)}
+        >
+          delete
+        </Button>
+      </ColorItem>
+    </>
   );
 }
 

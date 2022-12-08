@@ -3,7 +3,8 @@ import styled from "styled-components";
 const Button = styled.button`
   width: 50%;
   height: 3rem;
-  background-color: var(--primary-black);
+  background-color: ${({ isAlert }) =>
+    isAlert ? "var(--alert-primary)" : "var(--primary-black)"};
   color: var(--primary-white);
   border: none;
   font-family: monospace;

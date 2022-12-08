@@ -5,6 +5,7 @@ import { nanoid } from "nanoid";
 import GlobalStyle from "./components/GlobalStyle";
 import ColorCard from "./components/ColorCard";
 import ColorForm from "./components/ColorForm";
+import DeletePopup from "./components/DeletePopup";
 
 function App() {
   const initialColors = [
@@ -29,7 +30,7 @@ function App() {
       colorCode: "#188C99",
     },
   ];
-
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [colorCards, setColorCards] = useState(
     JSON.parse(localStorage.getItem("colorCards")) || initialColors
   );
@@ -57,6 +58,14 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      {showDeletePopup && (
+        <DeletePopup
+          deleteColorCard={deleteColorCard}
+          // id={colorCards.color.id}
+          setShowDeletePopup={setShowDeletePopup}
+          colorCards={colorCards}
+        />
+      )}
       <CardList>
         <ColorForm addColorCard={addColorCard} />
         {colorCards.map((color) => (
@@ -65,6 +74,7 @@ function App() {
             id={color.id}
             color={color.colorCode}
             deleteColorCard={deleteColorCard}
+            setShowDeletePopup={setShowDeletePopup}
             // deleteColorCard={(event) => deleteColorCard(color.id, event)}
           />
         ))}
