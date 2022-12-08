@@ -46,10 +46,22 @@ function App() {
 
   function deleteColorCard(id, event) {
     event.stopPropagation();
+    console.log("deleted id:", id);
     setColorCards((colorCards) =>
       colorCards.filter((colorCard) => colorCard.id !== id)
     );
     setShowDeletePopup(false);
+  }
+
+  function changeInputColor(id, event) {
+    const newColorCode = event.target.value;
+    setColorCards(
+      colorCards.map((colorCard) =>
+        colorCard.id === id
+          ? { ...colorCard, colorCode: newColorCode }
+          : colorCard
+      )
+    );
   }
 
   useEffect(() => {
@@ -75,6 +87,7 @@ function App() {
             id={color.id}
             color={color.colorCode}
             deleteColorCard={deleteColorCard}
+            changeInputColor={changeInputColor}
             // setShowDeletePopup={setShowDeletePopup}
             // deleteColorCard={(event) => deleteColorCard(color.id, event)}
           />

@@ -7,6 +7,7 @@ export default function ColorCard({
   id,
   showDeletePopup,
   setShowDeletePopup,
+  changeInputColor,
 }) {
   function handleClick() {
     navigator.clipboard.writeText(color);
@@ -15,7 +16,11 @@ export default function ColorCard({
   return (
     <>
       <ColorItem onClick={handleClick} style={{ backgroundColor: color }}>
-        <Input value={color} style={{ backgroundColor: color }} />
+        <Input
+          value={color}
+          onChange={(event) => changeInputColor(id, event)}
+          style={{ backgroundColor: color }}
+        />
         <Button
           // onClick={(event) => {
           //   event.stopPropagation();
