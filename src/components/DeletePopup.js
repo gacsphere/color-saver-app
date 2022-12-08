@@ -10,7 +10,11 @@ export default function DeletePopup({
   return (
     <>
       <Overlay onClick={() => setShowDeletePopup(false)}>
-        <DeleteCard>
+        <DeleteCard
+          onClick={(event) => {
+            event.stopPropagation();
+          }}
+        >
           <PopupTxt>
             Do you really want to delete this beautiful color?
           </PopupTxt>
@@ -20,7 +24,7 @@ export default function DeletePopup({
               event.preventDefault();
               event.stopPropagation();
               deleteColorCard(id, event);
-              setShowDeletePopup(false);
+              // setShowDeletePopup(false);
             }}
             type="button"
           >
@@ -28,7 +32,7 @@ export default function DeletePopup({
           </Button>
           <Button
             onClick={(event) => {
-              // event.preventDefault();
+              event.preventDefault();
               setShowDeletePopup(false);
             }}
             type="button"

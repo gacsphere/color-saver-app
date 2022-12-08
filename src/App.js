@@ -49,6 +49,7 @@ function App() {
     setColorCards((colorCards) =>
       colorCards.filter((colorCard) => colorCard.id !== id)
     );
+    setShowDeletePopup(false);
   }
 
   useEffect(() => {
@@ -74,7 +75,7 @@ function App() {
             id={color.id}
             color={color.colorCode}
             deleteColorCard={deleteColorCard}
-            setShowDeletePopup={setShowDeletePopup}
+            // setShowDeletePopup={setShowDeletePopup}
             // deleteColorCard={(event) => deleteColorCard(color.id, event)}
           />
         ))}

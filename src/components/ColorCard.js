@@ -17,11 +17,11 @@ export default function ColorCard({
       <ColorItem onClick={handleClick} style={{ backgroundColor: color }}>
         <ColorCodeTxt>{color}</ColorCodeTxt>
         <Button
-          onClick={(event) => {
-            event.stopPropagation();
-            setShowDeletePopup(true);
-          }}
-          // onClick={(event) => deleteColorCard(id, event)}
+          // onClick={(event) => {
+          //   event.stopPropagation();
+          //   setShowDeletePopup(true);
+          // }}
+          onClick={(event) => deleteColorCard(id, event)}
         >
           delete
         </Button>
