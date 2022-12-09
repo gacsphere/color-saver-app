@@ -10,7 +10,7 @@ export default function ColorCard({
   setShowDeletePopup,
   changeInputColor,
 }) {
-  function handleClick() {
+  function handleClick(event) {
     navigator.clipboard.writeText(color);
     setCopyMessage(true);
   }
@@ -26,7 +26,9 @@ export default function ColorCard({
         <Input
           value={color}
           onChange={(event) => changeInputColor(id, event)}
-          onClick={handleClick}
+          onClick={(event) => {
+            event.stopPropagation();
+          }}
           style={{ backgroundColor: color }}
         />
         <Button
