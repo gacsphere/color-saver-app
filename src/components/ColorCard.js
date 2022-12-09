@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { Button, Input } from "./StyledComponents";
 
@@ -11,6 +12,12 @@ export default function ColorCard({
 }) {
   function handleClick() {
     navigator.clipboard.writeText(color);
+    setCopyMessage(true);
+  }
+
+  const [copyMessage, setCopyMessage] = useState();
+  if (copyMessage) {
+    setTimeout(() => setCopyMessage(false), 1000);
   }
 
   return (
@@ -31,6 +38,11 @@ export default function ColorCard({
         >
           delete
         </Button>
+        {copyMessage && (
+          <CopyMessage style={{ backgroundColor: color }}>
+            Copied color {color}
+          </CopyMessage>
+        )}
       </ColorItem>
     </>
   );
@@ -50,4 +62,19 @@ const ColorItem = styled.li`
     cursor: pointer;
     /* transform: rotate(-6deg); */
   }
+`;
+
+const CopyMessage = styled.p`
+  position: absolute;
+  padding: 1rem;
+  /* background-color: var(--primary-white); */
+  text-transform: uppercase;
+  text-align: center;
+  width: 15rem;
+  aspect-ratio: 1;
+  border: 0.25rem solid var(--primary-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
