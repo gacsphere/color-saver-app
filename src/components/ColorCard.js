@@ -41,7 +41,7 @@ export default function ColorCard({
           delete
         </Button>
         {copyMessage && (
-          <CopyMessage style={{ backgroundColor: color }}>
+          <CopyMessage /*style={{ backgroundColor: color }}*/>
             Copied color {color}
           </CopyMessage>
         )}
@@ -69,7 +69,7 @@ const ColorItem = styled.li`
 const CopyMessage = styled.p`
   position: absolute;
   padding: 1rem;
-  /* background-color: var(--primary-white); */
+  background-color: var(--primary-white);
   text-transform: uppercase;
   text-align: center;
   width: 15rem;
