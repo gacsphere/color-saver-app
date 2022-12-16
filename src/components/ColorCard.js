@@ -42,7 +42,7 @@ export default function ColorCard({
         </Button>
         {copyMessage && (
           <CopyMessage /*style={{ backgroundColor: color }}*/>
-            Copied color {color}
+            Copy color {color}
           </CopyMessage>
         )}
       </ColorItem>
